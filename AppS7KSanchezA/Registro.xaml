@@ -4,6 +4,7 @@
              x:Class="AppS7KSanchezA.Registro">
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="Ventana de Registro" FontSize="Medium" HorizontalTextAlignment="Center"/>
             <Entry x:Name="txtNombre" Placeholder="Ingrese el Nombre"/>
             <Entry x:Name="txtUsuario" Placeholder="Ingrese el usuario"/>
             <Entry x:Name="txtContrasenia" Placeholder="Ingrese la contrasenia" IsPassword="True"/>

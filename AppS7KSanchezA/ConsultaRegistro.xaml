@@ -4,6 +4,8 @@
              x:Class="AppS7KSanchezA.ConsultaRegistro">
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="Ventana de Consulta Registro" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            
             <ListView x:Name="ListaUsuarios" ItemSelected="ListaUsuarios_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>

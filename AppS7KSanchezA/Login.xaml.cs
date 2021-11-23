@@ -32,17 +32,26 @@ namespace AppS7KSanchezA
         {
             try
             {
-                var documentPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "uisrael.db3");
-                var db = new SQLiteConnection(documentPath);
-                db.CreateTable<Estudiante>();
-                IEnumerable<Estudiante> resultado = SELECT_WHERE(db, txtUsuario.Text, txtContrasenia.Text);
-                if (resultado.Count() > 0)
+                //Verificando ingreso de datos no sean nulos, ni vacios
+                if (string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(txtContrasenia.Text))
                 {
-                    Navigation.PushAsync(new ConsultaRegistro());
+                    DisplayAlert("IMPORTANTE", "Usuario y clave son requeridos", "ok");
                 }
                 else
                 {
-                    DisplayAlert("Alerta", "Usuario no existe, por favor Registrarse", "ok");
+
+                    var documentPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "uisrael.db3");
+                    var db = new SQLiteConnection(documentPath);
+                    db.CreateTable<Estudiante>();
+                    IEnumerable<Estudiante> resultado = SELECT_WHERE(db, txtUsuario.Text, txtContrasenia.Text);
+                    if (resultado.Count() > 0)
+                    {
+                        Navigation.PushAsync(new ConsultaRegistro());
+                    }
+                    else
+                    {
+                        DisplayAlert("Alerta", "Usuario no existe, por favor Registrarse", "ok");
+                    }
                 }
             }
             catch (Exception ex)

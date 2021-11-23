@@ -4,7 +4,11 @@
              x:Class="AppS7KSanchezA.Login">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Ventana de Login" FontSize="Medium"/>
+            <Frame BackgroundColor="#215178" Padding="20" CornerRadius="0">
+                <Label Text="SQLite" HorizontalTextAlignment="Center" TextColor="White" FontSize="18"/>
+            </Frame>
+
+            <Label Text="Ventana de Login" FontSize="Medium" HorizontalTextAlignment="Center"/>
             <Entry x:Name="txtUsuario" Placeholder="Ingrese el usuario"/>
             <Entry x:Name="txtContrasenia" Placeholder="Ingrese la contrasenia" IsPassword="True"/>
             <Button x:Name="btnIniciar" Text="Iniciar sesión" Clicked="btnIniciar_Clicked" />

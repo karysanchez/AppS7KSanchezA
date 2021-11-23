@@ -26,15 +26,26 @@ namespace AppS7KSanchezA
         {
             try
             {
-                var Registros = new Estudiante
+                //Verificando ingreso de datos no sean nulos, ni vacios
+                if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(txtContrasenia.Text))
                 {
-                    Nombre = txtNombre.Text,
-                    Usuario = txtUsuario.Text,
-                    Contrasenia = txtContrasenia.Text
-                };
-                con.InsertAsync(Registros);
-                DisplayAlert("Alerta", "Dato Ingresado", "OK");
-                inicializar();
+                    DisplayAlert("IMPORTANTE", "Datos son requeridos", "ok");
+                }
+                else
+                {
+
+                    var Registros = new Estudiante
+                    {
+                        Nombre = txtNombre.Text,
+                        Usuario = txtUsuario.Text,
+                        Contrasenia = txtContrasenia.Text
+                    };
+                    con.InsertAsync(Registros);
+                    DisplayAlert("Alerta", "Dato Ingresado", "OK");
+                    inicializar();
+                    regresar();
+
+                }
             }
             catch (Exception ex)
             {
@@ -46,6 +57,11 @@ namespace AppS7KSanchezA
             txtNombre.Text = "";
             txtContrasenia.Text = "";
             txtUsuario.Text = "";
+        }
+
+        public async void regresar()
+        {
+            await Navigation.PushAsync(new Login());
         }
     }
 }

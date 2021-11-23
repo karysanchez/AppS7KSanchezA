@@ -4,9 +4,16 @@
              x:Class="AppS7KSanchezA.Elemento">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Ventana de Elemento" FontSize="Medium" HorizontalTextAlignment="Center"/>
+            <Label x:Name="mensaje"/>
+            <Label Text="Nombre: "/>
+            <Entry x:Name="txtNombre" Placeholder="Nombre"/>
+            <Label Text="Usuario: "/>
+            <Entry x:Name="txtUsuario" Placeholder="Usuario"/>
+            <Label Text="Contraseña: "/>
+            <Entry x:Name="txtContrasenia" Placeholder="Contraseña"/>
+            <Button x:Name="btnActualizar" Text="Actualizar" Clicked="btnActualizar_Clicked" />
+            <Button x:Name="btnEliminar" Text="Eliminar" Clicked="btnEliminar_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
